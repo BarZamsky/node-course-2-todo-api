@@ -9,7 +9,7 @@ var User = mongoose.model('User', {
   }
 });
 
-module.expots = {User};
+module.exports = {User};
 
 // var user = new User({
 //   email:'bar@exm.com'
