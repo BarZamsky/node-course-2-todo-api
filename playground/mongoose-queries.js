@@ -38,4 +38,6 @@ User.findById(idUser).then((user) => {
     return console.log('User not found');
   }
   console.log(JSON.stringify(user, undefined, 2));
-}).catch((e) => console.log(e));
+}).catch((e) => {
+  console.log(e)
+});
