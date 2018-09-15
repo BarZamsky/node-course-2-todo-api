@@ -17,15 +17,11 @@ const users = [{
 }, {
   _id: userTwoId,
   email: 'shahar@example.com',
-  password: 'userTwoPass',
-  // tokens: [{
-	// 	access: 'auth',
-	// 	token: jwt.sign({_id: userTwoId, access: 'auth'}, process.env.JWT_SECRET).toString()
-	// }]
+  password: 'userTwoPass'
 }];
 
 const populateUsers = (done) => {
-	User.deleteMany({}).then(() => {
+	User.remove({}).then(() => {
 		return userOne = new User(users[0]).save();
 	}).then(() => {
 		return userTwo = new User(users[1]).save();

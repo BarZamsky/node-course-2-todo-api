@@ -4,13 +4,25 @@ const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 
+var UserSubSchema = new mongoose.Schema({
+		access: {
+			type: String,
+			required: true
+		},
+		token: {
+			type: String,
+			required: true
+		},
+		_id: false
+});
+
 var UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
     trim: true,
     minlength: 1,
-    unique: true,
+    //unique: true,
     validate: {
       validator: validator.isEmail,
       message: '{VALUE} is not a valid email'
@@ -21,16 +33,7 @@ var UserSchema = new mongoose.Schema({
     require: true,
     minlength: 6
   },
-  tokens: [{
-    access: {
-      type: String,
-      required: true
-    },
-    token: {
-      type: String,
-      required: true
-    }
-  }]
+  tokens: [UserSubSchema]
 });
 
 UserSchema.methods.toJSON = function () {
