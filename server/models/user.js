@@ -22,7 +22,7 @@ var UserSchema = new mongoose.Schema({
     required: true,
     trim: true,
     minlength: 1,
-    //unique: true,
+//    unique: true,
     validate: {
       validator: validator.isEmail,
       message: '{VALUE} is not a valid email'
@@ -34,7 +34,7 @@ var UserSchema = new mongoose.Schema({
     minlength: 6
   },
   tokens: [UserSubSchema]
-});
+})
 
 UserSchema.methods.toJSON = function () {
   var user = this;
