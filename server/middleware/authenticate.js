@@ -1,4 +1,6 @@
-var {User} = require('./../models/user');
+const {User} = require('./../models/user');
+const _ = require('lodash');
+const bcrypt = require('bcryptjs');
 
 var authenticate = (req, res, next) => {
   var token = req.header('x-auth');
